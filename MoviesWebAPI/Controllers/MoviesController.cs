@@ -23,14 +23,19 @@ namespace MoviesWebAPI.Controllers
         public IActionResult Get()
         {
             var movies = _context.Movies.ToList();
-            return Ok(movies);
+            return StatusCode(200, movies);
         }
 
         // GET api/<MoviesController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public IActionResult Get(int id)
         {
-            return "value";
+            var movie = _context.Movies.Find(id);
+            if (movie == null)
+            {
+                return NotFound();
+            }
+            return StatusCode(200, movie);
         }
 
         // POST api/<MoviesController>
@@ -44,14 +49,27 @@ namespace MoviesWebAPI.Controllers
 
         // PUT api/<MoviesController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public IActionResult Put(int id, [FromBody] Movie movie)
         {
+            var value = _context.Movies.Find(id);
+            value.Title = movie.Title;
+            value.RunningTime = movie.RunningTime;
+            value.Genre = movie.Genre;
+            _context.Movies.Update(movie);
+            _context.SaveChanges();
+            return StatusCode(200, value);
+
         }
 
         // DELETE api/<MoviesController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            var movie = _context.Movies.Find(id);
+            _context.Movies.Remove(movie);
+            _context.SaveChanges();
+            return NoContent();
+
         }
     }
 }
