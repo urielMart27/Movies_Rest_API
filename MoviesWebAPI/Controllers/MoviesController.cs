@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 using MoviesWebAPI.Data;
 using MoviesWebAPI.Models;
 using System.ComponentModel.DataAnnotations;
@@ -19,9 +20,10 @@ namespace MoviesWebAPI.Controllers
 
         // GET: api/<MoviesController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            var movies = _context.Movies.ToList();
+            return Ok(movies);
         }
 
         // GET api/<MoviesController>/5
