@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "3231ed06-5169-4c01-b7c2-8336f8e74e4c",
+		"name": "ASPNET_Movies_WebAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31187941"
+	},
+	"item": [
+		{
+			"name": "Get All",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"strictSSL": false
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5187/api/Movies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5187",
+					"path": [
+						"api",
+						"Movies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get By ID",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Title\": \"Toy Story\",\r\n    \"RunningTime\": \"81\",\r\n    \"Genre\": \"Animation\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5187/api/Movies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5187",
+					"path": [
+						"api",
+						"Movies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Title\": \"Cars\",\r\n    \"RunningTime\": \"117\",\r\n    \"Genre\": \"Animation\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5187/api/Movies/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5187",
+					"path": [
+						"api",
+						"Movies",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Title\": \"Toy Story\",\r\n    \"RunningTime\": \"81\",\r\n    \"Genre\": \"Animation\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5187/api/Movies/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5187",
+					"path": [
+						"api",
+						"Movies",
+						"5"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
